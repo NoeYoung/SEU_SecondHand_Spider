@@ -3,10 +3,8 @@ import json
 import itchat
 import time
 import sqlite3
+import seu_spider.sqllib as sqllib
 from functools import reduce
-
-import sys
-import tutorial.sqllib as sqllib
 
 class MyChat(itchat.Core):
     def get_username_by_name(self,name):
@@ -19,8 +17,8 @@ class MyChat(itchat.Core):
     def send_debug(self,message):
         self.send(message,toUserName='filehelper')
     
-class DmozSpider(scrapy.Spider):
-    name = "dmoz"
+class SEU_2Hand_Spider(scrapy.Spider):
+    name = "seu2hand"
     allowed_domains = ["seu.edu.cn"]
     start_urls = [
         "http://bbs.seu.edu.cn/api/board/secondhand.js?mode=1&limit=100"

@@ -8,7 +8,7 @@
 import scrapy
 
 
-class DmozItem(scrapy.Item):
+class SEU_Item(scrapy.Item):
 	title = scrapy.Field()
 	link = scrapy.Field()
 	desc = scrapy.Field()
