@@ -6,9 +6,7 @@ import sqlite3
 from functools import reduce
 
 import sys
-sys.path.append('/root/tutorial/tutorial/spiders')
-
-import sqllib
+import tutorial.sqllib as sqllib
 
 class MyChat(itchat.Core):
     def get_username_by_name(self,name):

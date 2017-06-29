@@ -54,6 +54,7 @@ if __name__ == '__main__':
     #test create database twice
     c.create_table(database_name,('id int','title text','author text','time int'))
     conn.commit()
+    #insert data test
     c.insert_data(database_name,(123,'234','232',345))
     c.insert_data(database_name,(32,'test','hello',345))
     c.insert_data(database_name,(99,'234','sdfsda',345))
@@ -62,6 +63,7 @@ if __name__ == '__main__':
     c.insert_data(database_name,(332,'test2','hello',3345))
     print(c.fetchall())
     conn.commit()
+    #select command test
     print(c.check_in_database(database_name,'id',32))
     print(c.check_in_database(database_name,'id',333))
     print(c.check_in_database(database_name,'id',99))
