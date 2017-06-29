@@ -102,3 +102,6 @@ ENV/
 
 # database
 *.db
+
+# pkl file
+*.pkl
