@@ -30,6 +30,14 @@ class DB_Exec(sqlite3.Cursor):
         self.execute(execute_str)
         return(self.fetchall()[0][0])
 
+    def check_table(self,table_name):
+        
+        execute_str = "select count(*) from sqlite_master where type = 'table' and name = '%s'" % table_name
+
+        print("Execute SQL command ==> %s " % execute_str)
+        self.execute(execute_str)
+        return(self.fetchall()[0][0])
+
     def create_table(self,database_name,lists):
 
         execute_str = "create table if not exists " + database_name + " (" + \
@@ -54,6 +62,11 @@ if __name__ == '__main__':
     #test create database twice
     c.create_table(database_name,('id int','title text','author text','time int'))
     conn.commit()
+
+    #check table exist
+    print(c.check_table(database_name))
+    print(c.check_table("notexists"))
+
     #insert data test
     c.insert_data(database_name,(123,'234','232',345))
     c.insert_data(database_name,(32,'test','hello',345))
