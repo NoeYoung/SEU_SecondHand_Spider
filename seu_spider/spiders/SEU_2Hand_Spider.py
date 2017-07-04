@@ -2,6 +2,7 @@ import scrapy
 import json
 import time
 import sqlite3
+import platform
 from functools import reduce
 
 import seu_spider.wechat as wechat
@@ -34,7 +35,10 @@ class SEU_2Hand_Spider(scrapy.Spider):
 
             #login wechat
             mychat.auto_login(enableCmdQR=2,hotReload=True)
-            mychat.send_debug(reduce(lambda str1,str2:str1 + '\n' + str2,self.queue))
+            #mychat.send_debug(reduce(lambda str1,str2:str1 + '\n' + str2,self.queue))
+            inform_str = platform.platform() + '\n' + time.strftime("%m/%d/%Y %H:%M:%S");
+            mychat.send_debug(inform_str)
+            mychat.send_debug('\n'.join(self.queue))
 
         else:
             print("=========No New Items==========")
